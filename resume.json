@@ -37,20 +37,6 @@
         "description": "Análise exploratória de dados, pipelines ETL, Business Intelligence e Inteligência Artificial aplicada a operações comerciais."
       }
     ],
-    "certifications": [
-      {
-        "title": "Advanced Data Intelligence & Analytics",
-        "issuer": "Programa SCTech",
-        "period": "2026",
-        "description": "Certificação avançada em manipulação de dados, automação com Python e modelagem de relatórios gerenciais."
-      },
-      {
-        "title": "Cloud Architecture & Serverless Solutions",
-        "issuer": "Google Cloud & Firebase Ecosystem",
-        "period": "2025",
-        "description": "Desenvolvimento de aplicações serverless integrando Google Apps Script, Firebase e hospedagem estática."
-      }
-    ],
     "skills": [
       "JavaScript (ES6+)", "Python", "SQL", "HTML5 & CSS3",
       "Google Apps Script", "Firebase", "Pandas & NumPy",
@@ -93,20 +79,6 @@
         "institution": "SCTech Program",
         "period": "2026",
         "description": "Exploratory data analysis, ETL pipelines, Business Intelligence, and Artificial Intelligence applied to business operations."
-      }
-    ],
-    "certifications": [
-      {
-        "title": "Advanced Data Intelligence & Analytics",
-        "issuer": "SCTech Program",
-        "period": "2026",
-        "description": "Advanced certification in data manipulation, Python automation, and management reporting modeling."
-      },
-      {
-        "title": "Cloud Architecture & Serverless Solutions",
-        "issuer": "Google Cloud & Firebase Ecosystem",
-        "period": "2025",
-        "description": "Development of serverless applications integrating Google Apps Script, Firebase, and static hosting."
       }
     ],
     "skills": [

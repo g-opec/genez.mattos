@@ -3,6 +3,7 @@
 // ============================================================================
 const CONFIG = {
   githubUsername: "g-opec",
+  repoName: "genez.mattos",
   linkedinUrl: "https://www.linkedin.com/in/genez-jose-mattos-junior/",
   email: "genezmattos@gmail.com",
   profileImagePath: "assets/profile.png"
@@ -71,19 +72,6 @@ function renderResume(lang) {
     </div>
   `).join("");
 
-  // Certificações
-  const certContainer = document.getElementById("certifications-list");
-  if (certContainer && data.certifications) {
-    certContainer.innerHTML = data.certifications.map(item => `
-      <div class="timeline-item">
-        <div class="role-title">${item.title}</div>
-        <div class="company-name">${item.issuer}</div>
-        <div class="period">${item.period}</div>
-        <p class="role-desc">${item.description}</p>
-      </div>
-    `).join("");
-  }
-
   // Skills
   const skillsContainer = document.getElementById("skills-list");
   skillsContainer.innerHTML = data.skills.map(skill => `
@@ -92,7 +80,64 @@ function renderResume(lang) {
 }
 
 // ============================================================================
-// 4. INTEGRAÇÃO AUTOMÁTICA COM A API DO GITHUB
+// 4. CONSTRUTOR DE CERTIFICADOS AUTOMÁTICO (VIA PASTA DO GITHUB)
+// ============================================================================
+async function fetchCertificatesFromGitHub() {
+  const certContainer = document.getElementById("certifications-list");
+  if (!certContainer) return;
+
+  try {
+    // Consulta a API do GitHub na pasta /certificados do repositório
+    const apiUrl = `https://api.github.com/repos/${CONFIG.githubUsername}/${CONFIG.repoName}/contents/certificados`;
+    const response = await fetch(apiUrl);
+    
+    if (!response.ok) {
+      certContainer.innerHTML = `<p class="role-desc">Crie uma pasta chamada <code>certificados</code> no repositório para listar os arquivos automaticamente.</p>`;
+      return;
+    }
+
+    const files = await response.json();
+
+    // Filtra apenas arquivos válidos (PDF, imagens)
+    const certFiles = files.filter(file => 
+      file.type === "file" && /\.(pdf|png|jpg|jpeg)$/i.test(file.name)
+    );
+
+    if (certFiles.length === 0) {
+      certContainer.innerHTML = `<p class="role-desc">Nenhum certificado encontrado na pasta.</p>`;
+      return;
+    }
+
+    // Renderiza cada certificado encontrado convertendo o nome do arquivo em um título limpo
+    certContainer.innerHTML = certFiles.map(file => {
+      // Remove extensão e substitui hífens/underscores por espaços (ex: "certificado-python.pdf" -> "Certificado Python")
+      const cleanName = file.name
+        .substring(0, file.name.lastIndexOf('.'))
+        .replace(/[-_]/g, ' ');
+      
+      const formattedTitle = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
+
+      return `
+        <div class="timeline-item">
+          <div class="role-title">
+            <a href="${file.download_url}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
+              ${formattedTitle} 📄
+            </a>
+          </div>
+          <div class="company-name">Validação Direta (Repositório)</div>
+          <p class="role-desc">Clique no título para visualizar o documento original.</p>
+        </div>
+      `;
+    }).join("");
+
+  } catch (error) {
+    console.error("Erro ao buscar certificados do GitHub:", error);
+    certContainer.innerHTML = `<p class="role-desc">Pasta de certificados não configurada ou vazia.</p>`;
+  }
+}
+
+// ============================================================================
+// 5. INTEGRAÇÃO AUTOMÁTICA COM A API DO GITHUB (MÉTRICAS E LINGUAGENS)
 // ============================================================================
 const LANG_COLORS = {
   JavaScript: "#f1e05a",
@@ -183,7 +228,7 @@ async function fetchGitHubMetrics() {
 }
 
 // ============================================================================
-// 5. INICIALIZAÇÃO
+// 6. INICIALIZAÇÃO
 // ============================================================================
 document.getElementById("lang-toggle").addEventListener("click", (e) => {
   currentLang = currentLang === "pt" ? "en" : "pt";
@@ -193,3 +238,4 @@ document.getElementById("lang-toggle").addEventListener("click", (e) => {
 
 loadResumeData();
 fetchGitHubMetrics();
+fetchCertificatesFromGitHub();

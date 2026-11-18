@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-theme">
-  <header class="top-bar">
+  <header class="top-bar no-print">
     <div class="container nav-content">
       <span class="logo">GM<span class="dot">.</span></span>
       <div class="controls">
@@ -41,7 +41,7 @@
       <p id="user-about" class="about-text"></p>
     </section>
 
-    <!-- Métricas do GitHub (Oculto automaticamente no PDF/Impressão) -->
+    <!-- Métricas do GitHub (Oculto automaticamente no PDF para ATS) -->
     <section class="card no-print">
       <div class="section-header">
         <h2 data-i18n="github_title">Métricas & Linguagens (GitHub)</h2>
@@ -77,7 +77,7 @@
       <div id="experience-list" class="timeline"></div>
     </section>
 
-    <!-- Formação Acadêmica & Certificações -->
+    <!-- Formação Acadêmica & Certificações (Dinâmicas do GitHub) -->
     <div class="two-columns">
       <section class="card">
         <h2 data-i18n="edu_title">Formação Acadêmica</h2>
@@ -86,7 +86,9 @@
 
       <section class="card">
         <h2 data-i18n="cert_title">Certificações</h2>
-        <div id="certifications-list" class="timeline"></div>
+        <div id="certifications-list" class="timeline">
+          <p class="role-desc" style="font-style: italic;">Carregando certificados da pasta do GitHub...</p>
+        </div>
       </section>
     </div>
 
