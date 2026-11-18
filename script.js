@@ -45,10 +45,30 @@ function renderResume(lang) {
   document.getElementById("user-location").textContent = data.profile.location;
   document.getElementById("user-about").textContent = data.profile.about;
 
-  // Links
-  document.getElementById("linkedin-link").href = CONFIG.linkedinUrl;
-  document.getElementById("github-link").href = `https://github.com/${CONFIG.githubUsername}`;
-  document.getElementById("email-link").href = `mailto:${CONFIG.email}`;
+  // Links do Header
+  const linkedinEl = document.getElementById("linkedin-link");
+  const githubEl = document.getElementById("github-link");
+  const emailEl = document.getElementById("email-link");
+
+  linkedinEl.href = CONFIG.linkedinUrl;
+  linkedinEl.target = "_blank";
+  linkedinEl.rel = "noopener";
+
+  githubEl.href = `https://github.com/${CONFIG.githubUsername}`;
+  githubEl.target = "_blank";
+  githubEl.rel = "noopener";
+
+  emailEl.href = `mailto:${CONFIG.email}`;
+
+  // Preenche a Seção de Links & Contato de Referência (Ideal para PDF e Impressão)
+  const referenceList = document.getElementById("reference-links-list");
+  if (referenceList) {
+    referenceList.innerHTML = `
+      <li><strong>LinkedIn:</strong> <a href="${CONFIG.linkedinUrl}" target="_blank" rel="noopener">${CONFIG.linkedinUrl}</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/${CONFIG.githubUsername}" target="_blank" rel="noopener">https://github.com/${CONFIG.githubUsername}</a></li>
+      <li><strong>E-mail:</strong> <a href="mailto:${CONFIG.email}">${CONFIG.email}</a></li>
+    `;
+  }
 
   // Experiência
   const expContainer = document.getElementById("experience-list");
@@ -80,14 +100,13 @@ function renderResume(lang) {
 }
 
 // ============================================================================
-// 4. CONSTRUTOR DE CERTIFICADOS AUTOMÁTICO (VIA PASTA DO GITHUB)
+// 4. CONSTRUTOR DE CERTIFICADOS AUTOMÁTICO (ABRE EM NOVA ABA)
 // ============================================================================
 async function fetchCertificatesFromGitHub() {
   const certContainer = document.getElementById("certifications-list");
   if (!certContainer) return;
 
   try {
-    // Consulta a API do GitHub na pasta /certificados do repositório
     const apiUrl = `https://api.github.com/repos/${CONFIG.githubUsername}/${CONFIG.repoName}/contents/certificados`;
     const response = await fetch(apiUrl);
     
@@ -98,7 +117,6 @@ async function fetchCertificatesFromGitHub() {
 
     const files = await response.json();
 
-    // Filtra apenas arquivos válidos (PDF, imagens)
     const certFiles = files.filter(file => 
       file.type === "file" && /\.(pdf|png|jpg|jpeg)$/i.test(file.name)
     );
@@ -108,24 +126,23 @@ async function fetchCertificatesFromGitHub() {
       return;
     }
 
-    // Renderiza cada certificado encontrado convertendo o nome do arquivo em um título limpo
     certContainer.innerHTML = certFiles.map(file => {
-      // Remove extensão e substitui hífens/underscores por espaços (ex: "certificado-python.pdf" -> "Certificado Python")
       const cleanName = file.name
         .substring(0, file.name.lastIndexOf('.'))
         .replace(/[-_]/g, ' ');
       
       const formattedTitle = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
 
+      // Usando file.html_url para abrir no visualizador do GitHub em nova aba (em vez de baixar direto)
       return `
         <div class="timeline-item">
           <div class="role-title">
-            <a href="${file.download_url}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
+            <a href="${file.html_url}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
               ${formattedTitle} 📄
             </a>
           </div>
           <div class="company-name">Validação Direta (Repositório)</div>
-          <p class="role-desc">Clique no título para visualizar o documento original.</p>
+          <p class="role-desc">Clique no título para visualizar o documento em nova aba.</p>
         </div>
       `;
     }).join("");

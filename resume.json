@@ -13,6 +13,7 @@
       "edu_title": "Formação Acadêmica",
       "cert_title": "Certificações",
       "skills_title": "Competências & Tecnologias",
+      "links_title": "Links & Contato de Referência",
       "footer_text": "Desenvolvido com HTML, CSS & Vanilla JS • Hospedado no GitHub Pages"
     },
     "profile": {
@@ -57,6 +58,7 @@
       "edu_title": "Education",
       "cert_title": "Certifications",
       "skills_title": "Skills & Technologies",
+      "links_title": "Links & Reference Contact",
       "footer_text": "Built with HTML, CSS & Vanilla JS • Hosted on GitHub Pages"
     },
     "profile": {
