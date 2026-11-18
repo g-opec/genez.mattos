@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículo & Portfólio | Genez Mattos</title>
+  <title>Currículo | Genez José Mattos Júnior</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-theme">
   <header class="top-bar">
     <div class="container nav-content">
       <span class="logo">GM<span class="dot">.</span></span>
       <div class="controls">
         <button id="lang-toggle" class="btn-outline" aria-label="Alterar idioma">EN</button>
-        <button onclick="window.print()" class="btn-primary" data-i18n="print_btn">Salvar PDF</button>
+        <button onclick="window.print()" class="btn-primary" data-i18n="print_btn">Salvar PDF / Imprimir</button>
       </div>
     </div>
   </header>
@@ -22,9 +22,9 @@
   <main class="container">
     <!-- Hero / Perfil -->
     <section class="card profile-header">
-      <img id="profile-img" src="assets/profile.jpg" alt="Foto de Perfil" class="avatar">
+      <img id="profile-img" src="assets/profile.png" alt="Foto de Perfil" class="avatar">
       <div class="profile-info">
-        <h1 id="user-name">Genez Mattos</h1>
+        <h1 id="user-name">Genez José Mattos Júnior</h1>
         <p id="user-headline" class="headline"></p>
         <p id="user-location" class="location"></p>
         <div class="social-links">
@@ -41,8 +41,8 @@
       <p id="user-about" class="about-text"></p>
     </section>
 
-    <!-- Métricas do GitHub (Carregamento Automático) -->
-    <section class="card">
+    <!-- Métricas do GitHub (Oculto automaticamente no PDF/Impressão) -->
+    <section class="card no-print">
       <div class="section-header">
         <h2 data-i18n="github_title">Métricas & Linguagens (GitHub)</h2>
         <span id="github-status" class="badge">Carregando API...</span>
@@ -71,7 +71,7 @@
       <div id="repos-grid" class="repos-grid"></div>
     </section>
 
-    <!-- Experiência Profissional (Dados do LinkedIn) -->
+    <!-- Experiência Profissional -->
     <section class="card">
       <h2 data-i18n="exp_title">Experiência Profissional</h2>
       <div id="experience-list" class="timeline"></div>
@@ -85,13 +85,19 @@
       </section>
 
       <section class="card">
-        <h2 data-i18n="skills_title">Competências & Tecnologias</h2>
-        <div id="skills-list" class="tags-container"></div>
+        <h2 data-i18n="cert_title">Certificações</h2>
+        <div id="certifications-list" class="timeline"></div>
       </section>
     </div>
+
+    <!-- Competências & Tecnologias -->
+    <section class="card">
+      <h2 data-i18n="skills_title">Competências & Tecnologias</h2>
+      <div id="skills-list" class="tags-container"></div>
+    </section>
   </main>
 
-  <footer class="container footer">
+  <footer class="container footer no-print">
     <p data-i18n="footer_text">Desenvolvido com HTML, CSS & Vanilla JS • Hospedado no GitHub Pages</p>
   </footer>
 

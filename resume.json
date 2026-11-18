@@ -1,0 +1,118 @@
+{
+  "pt": {
+    "ui": {
+      "print_btn": "Salvar PDF / Imprimir",
+      "about_title": "Sobre",
+      "github_title": "Métricas & Linguagens (GitHub)",
+      "gh_repos": "Repositórios Públicos",
+      "gh_stars": "Stars Recebidas",
+      "gh_followers": "Seguidores",
+      "top_langs": "Linguagens Mais Utilizadas",
+      "featured_repos": "Projetos em Destaque",
+      "exp_title": "Experiência Profissional",
+      "edu_title": "Formação Acadêmica",
+      "cert_title": "Certificações",
+      "skills_title": "Competências & Tecnologias",
+      "footer_text": "Desenvolvido com HTML, CSS & Vanilla JS • Hospedado no GitHub Pages"
+    },
+    "profile": {
+      "name": "Genez José Mattos Júnior",
+      "headline": "Desenvolvedor Full-Stack | Especialista em Operações Comerciais (OPEC) & Inteligência de Dados",
+      "location": "Lages, Santa Catarina, Brasil",
+      "about": "Profissional com sólida experiência na interseção entre desenvolvimento de software, automação de processos e operações comerciais no setor de mídia. Focado na criação de sistemas web escaláveis, pipelines de ETL, análise de dados e arquiteturas serverless para eliminar gargalos operacionais."
+    },
+    "experience": [
+      {
+        "role": "Desenvolvedor de Software & Especialista OPEC",
+        "company": "Setor de Mídia & Radiodifusão",
+        "period": "Atual",
+        "description": "Desenvolvimento e arquitetura de sistemas de gestão comercial (G-OPEC), automação de roteiros, auditoria de veiculação e integração de dados entre plataformas de rádio, TV e digital."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Especialização em Inteligência de Dados & IA (SCTech)",
+        "institution": "Programa SCTech",
+        "period": "2026",
+        "description": "Análise exploratória de dados, pipelines ETL, Business Intelligence e Inteligência Artificial aplicada a operações comerciais."
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Advanced Data Intelligence & Analytics",
+        "issuer": "Programa SCTech",
+        "period": "2026",
+        "description": "Certificação avançada em manipulação de dados, automação com Python e modelagem de relatórios gerenciais."
+      },
+      {
+        "title": "Cloud Architecture & Serverless Solutions",
+        "issuer": "Google Cloud & Firebase Ecosystem",
+        "period": "2025",
+        "description": "Desenvolvimento de aplicações serverless integrando Google Apps Script, Firebase e hospedagem estática."
+      }
+    ],
+    "skills": [
+      "JavaScript (ES6+)", "Python", "SQL", "HTML5 & CSS3",
+      "Google Apps Script", "Firebase", "Pandas & NumPy",
+      "Looker Studio", "Git & GitHub", "Arquitetura Serverless", "ETL & BI"
+    ]
+  },
+  "en": {
+    "ui": {
+      "print_btn": "Save PDF / Print",
+      "about_title": "About",
+      "github_title": "Metrics & Languages (GitHub)",
+      "gh_repos": "Public Repositories",
+      "gh_stars": "Stars Earned",
+      "gh_followers": "Followers",
+      "top_langs": "Most Used Languages",
+      "featured_repos": "Featured Projects",
+      "exp_title": "Work Experience",
+      "edu_title": "Education",
+      "cert_title": "Certifications",
+      "skills_title": "Skills & Technologies",
+      "footer_text": "Built with HTML, CSS & Vanilla JS • Hosted on GitHub Pages"
+    },
+    "profile": {
+      "name": "Genez José Mattos Júnior",
+      "headline": "Full-Stack Developer | Commercial Operations Specialist (OPEC) & Data Intelligence",
+      "location": "Lages, Santa Catarina, Brazil",
+      "about": "Professional with strong experience at the intersection of software development, process automation, and commercial operations in the media sector. Focused on building scalable web systems, ETL pipelines, data analytics, and serverless architectures to eliminate operational bottlenecks."
+    },
+    "experience": [
+      {
+        "role": "Software Developer & OPEC Specialist",
+        "company": "Media & Broadcasting Sector",
+        "period": "Present",
+        "description": "Development and architecture of commercial management systems (G-OPEC), scheduling automation, broadcast auditing, and data integration across radio, TV, and digital platforms."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Data Intelligence & AI Specialization (SCTech)",
+        "institution": "SCTech Program",
+        "period": "2026",
+        "description": "Exploratory data analysis, ETL pipelines, Business Intelligence, and Artificial Intelligence applied to business operations."
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Advanced Data Intelligence & Analytics",
+        "issuer": "SCTech Program",
+        "period": "2026",
+        "description": "Advanced certification in data manipulation, Python automation, and management reporting modeling."
+      },
+      {
+        "title": "Cloud Architecture & Serverless Solutions",
+        "issuer": "Google Cloud & Firebase Ecosystem",
+        "period": "2025",
+        "description": "Development of serverless applications integrating Google Apps Script, Firebase, and static hosting."
+      }
+    ],
+    "skills": [
+      "JavaScript (ES6+)", "Python", "SQL", "HTML5 & CSS3",
+      "Google Apps Script", "Firebase", "Pandas & NumPy",
+      "Looker Studio", "Git & GitHub", "Serverless Architecture", "ETL & BI"
+    ]
+  }
+}

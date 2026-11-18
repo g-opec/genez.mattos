@@ -284,6 +284,7 @@ h2 {
   margin-top: 2rem;
 }
 
+/* RESPONSIVIDADE MOBILE */
 @media (max-width: 768px) {
   .profile-header { flex-direction: column; text-align: center; }
   .social-links { justify-content: center; }
@@ -291,11 +292,51 @@ h2 {
   .metrics-grid { grid-template-columns: 1fr; }
 }
 
+/* CONFIGURAÇÃO DE IMPRESSÃO / PDF PARA ATS E RECRUTADORES */
 @media print {
-  body { background: #fff; color: #000; }
-  .top-bar, .footer { display: none; }
-  .card { border: 1px solid #ccc; background: #fff; break-inside: avoid; }
-  .metric-box, .repo-card, .tag { background: #f8fafc; border-color: #ccc; }
-  .headline, .company-name, .metric-value, .repo-title { color: #0284c7; }
-  .role-desc, .about-text { color: #1e293b; }
+  body { 
+    background: #ffffff !important; 
+    color: #111827 !important; 
+    font-size: 11pt;
+  }
+  .top-bar, .footer, .no-print { 
+    display: none !important; 
+  }
+  .card { 
+    border: none !important; 
+    background: #ffffff !important; 
+    padding: 0.5rem 0 !important; 
+    margin-bottom: 1rem !important; 
+    break-inside: avoid; 
+    box-shadow: none !important;
+  }
+  h2 { 
+    color: #0f172a !important; 
+    border-bottom: 1px solid #cbd5e1 !important; 
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  .headline, .company-name, .role-title { 
+    color: #0284c7 !important; 
+  }
+  .role-desc, .about-text, .location, .period { 
+    color: #334155 !important; 
+  }
+  .timeline-item {
+    border-left-color: #cbd5e1 !important;
+    margin-bottom: 1rem !important;
+  }
+  .timeline-item::before {
+    background: #0284c7 !important;
+  }
+  .tag {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #1e293b !important;
+  }
+  .avatar {
+    width: 90px !important;
+    height: 90px !important;
+    border-color: #0284c7 !important;
+  }
 }
